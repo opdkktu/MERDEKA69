@@ -242,6 +242,8 @@ const Quiz = (() => {
     const timeTakenSec = Math.round((Date.now() - state.startedAt) / 1000);
     const total = state.questions.length;
     const pct = Math.round((state.correctCount / total) * 100);
+     const finalScore = state.score;
+   const finalCorrect = state.correctCount;
 
     try {
       await Loading.during(() => Api.submitScore({
@@ -288,8 +290,7 @@ const Quiz = (() => {
     Confetti.burst();
     document.getElementById("btn-menu").addEventListener("click", () => App.goHome());
     document.getElementById("btn-leaderboard").addEventListener("click", () => Dashboard.open("leaderboard", "quiz"));
-    document.getElementById("btn-share").addEventListener("click", () => shareResult(state.score, state.correctCount, total));
-    state = null;
+document.getElementById("btn-share").addEventListener("click", () => shareResult(finalScore, finalCorrect, total));    state = null;
   }
 
   async function shareResult(score, correct, total) {
