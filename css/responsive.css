@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Responsive adjustments — mobile first, this file layers on refinements
+   ========================================================================== */
+
+/* Small phones */
+@media (max-width: 380px) {
+  .brand-title { font-size: 15px; }
+  .btn { font-size: 14px; padding: 0 16px; }
+  .result-hero .score-big { font-size: 38px; }
+}
+
+/* Tablets */
+@media (min-width: 640px) {
+  main.view { padding-top: 28px; }
+  .panel { padding: 26px; }
+  .answers { grid-template-columns: 1fr 1fr; }
+}
+
+/* Desktop / large screens */
+@media (min-width: 1024px) {
+  main.view { max-width: 860px; }
+  .hero { padding-top: 30px; }
+}
+
+/* Landscape phone: keep quiz usable without excess scroll */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-badge { width: 56px; height: 56px; }
+  .hero { padding: 8px 8px 16px; }
+}
+
+/* Ensure no horizontal scroll anywhere */
+html, body { overflow-x: hidden; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
